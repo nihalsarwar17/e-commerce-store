@@ -1,6 +1,6 @@
 # E-commerce Store
 
-# Lessons
+# Steps
 
 1. Created React App
 2. Create Git Repository 
