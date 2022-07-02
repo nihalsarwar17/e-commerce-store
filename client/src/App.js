@@ -24,7 +24,6 @@ function App() {
       <main>
         {/* <Container> */}
         <Routes>
-      
           <Route path="/" element={<HomeScreen/>} />
           <Route path="/item/:slug" element={<ProductScreen/>}/>
         </Routes>
