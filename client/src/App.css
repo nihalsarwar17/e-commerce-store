@@ -18,8 +18,14 @@ header a {
   text-decoration: none;
 }
 
+.site-container{
+  min-height: 100vh;
+}
+
 main {
-  padding: 1rem;
+  /* padding: 1rem; */
+  /* bring the footer in the bottom on every page */
+  flex: 1; 
 }
 
 .products { 
