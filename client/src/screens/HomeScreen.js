@@ -4,6 +4,7 @@ import logger from "use-reducer-logger";
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Product from "../components/Product";
+import { Helmet } from "react-helmet-async";
 // import data from "../data"; //=> static data
 
 // state => current state
@@ -63,6 +64,9 @@ export default function HomeScreen() {
 
   return (
     <div>
+       <Helmet>
+                <title>Amazona</title>
+              </Helmet>
       <h1>Featured Products</h1>
 
       <div className="products">
@@ -77,7 +81,7 @@ export default function HomeScreen() {
                 // sm=> 12 / 6 = 2 (pics on screen) 
                 // md=> 12 / 4 = 3 
                 // lg=> 12 / 3 = 4   
-                <Col  key={items.slug} sm={6} md={4} lg={3} className="mb-3">  
+                <Col  key={items.slug} sm={6} md={4} lg={3} className="mb-3"> 
                 <Product product={items}/>
                 </Col>
               );

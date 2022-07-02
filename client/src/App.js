@@ -11,7 +11,7 @@ function App() {
   return (
     <BrowserRouter>
     <div className="d-flex flex-column site-container">
-      <header>
+      <header >
       {/* <Navbar bg="dark" color="light" varient="dark">
           <Container>
             <LinkContainer to="/">
@@ -19,13 +19,15 @@ function App() {
             </LinkContainer>
           </Container>
         </Navbar> */}
+        
         <Link to="/">Amazona</Link>
       </header>
-      <main>
+      {/* mt-3 => distance from the navbar */}
+      <main className="mt-3"> 
         {/* <Container> */}
         <Routes>
           <Route path="/" element={<HomeScreen/>} />
-          <Route path="/item/:slug" element={<ProductScreen/>}/>
+          <Route path="/product/:slug" element={<ProductScreen/>}/>
         </Routes>
       {/* </Container> */}
       </main>

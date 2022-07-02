@@ -6,7 +6,7 @@ const data = {
             category: "Shirts",
             image: "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/08709a53-9987-4276-b87e-ad9255ce782c/dri-fit-victory-golf-top-Lm2Xp3.png",
             price: 120,
-            countInStock: 10,
+            countInStock: 0,
             brand: "Nike",
             rating: 4.5,
             numReviews: 10,
@@ -20,7 +20,7 @@ const data = {
             price: 120,
             countInStock: 10,
             brand: "Adidas",
-            rating: 4.5,
+            rating: 3,
             numReviews: 10,
             description: "High Quality Shirt"
         },
@@ -30,9 +30,9 @@ const data = {
             category: "Shirts",
             image: "https://www.differenta.com/media/produkty/164796/puma-women-s-t-shirt-black-essentials-3234249-A.jpg",
             price: 120,
-            countInStock: 10,
+            countInStock: 0,
             brand: "Puma",
-            rating: 4.5,
+            rating: 2.5,
             numReviews: 10,
             description: "High Quality Shirt"
         },
@@ -44,7 +44,7 @@ const data = {
             price: 120,
             countInStock: 10,
             brand: "Cat",
-            rating: 4.5,
+            rating: 3.5,
             numReviews: 10,
             description: "High Quality Shirt"
         }
