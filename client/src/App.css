@@ -28,6 +28,15 @@ main {
   flex: 1; 
 }
 
+.rating span{
+  color: #f0bc22
+}
+
+.btn{
+  background-color: #f0c040;
+  color: #000000
+}
+
 .products { 
   display: flex;
   flex-wrap: wrap;
