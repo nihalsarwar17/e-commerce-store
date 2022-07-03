@@ -1,10 +1,12 @@
 import React from "react";
 import axios from "axios";
 import logger from "use-reducer-logger";
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import Product from "../components/Product";
 import { Helmet } from "react-helmet-async";
+import LoadingBox from "../components/LoadingBox";
+import MessageBox from "../components/MessageBox";
 // import data from "../data"; //=> static data
 
 // state => current state
@@ -64,25 +66,25 @@ export default function HomeScreen() {
 
   return (
     <div>
-       <Helmet>
-                <title>Amazona</title>
-              </Helmet>
+      <Helmet>
+        <title>Amazona</title>
+      </Helmet>
       <h1>Featured Products</h1>
 
       <div className="products">
         {loading ? (
-          <div>Loading...</div>
+          <LoadingBox/>
         ) : error ? (
-          <div>{error}</div>
+          <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           <Row>
             {products.map((items) => {
               return (
-                // sm=> 12 / 6 = 2 (pics on screen) 
-                // md=> 12 / 4 = 3 
-                // lg=> 12 / 3 = 4   
-                <Col  key={items.slug} sm={6} md={4} lg={3} className="mb-3"> 
-                <Product product={items}/>
+                // sm=> 12 / 6 = 2 (pics on screen)
+                // md=> 12 / 4 = 3
+                // lg=> 12 / 3 = 4
+                <Col key={items.slug} sm={6} md={4} lg={3} className="mb-3">
+                  <Product product={items} />
                 </Col>
               );
             })}

@@ -10,6 +10,9 @@ import Badge from "react-bootstrap/Badge";
 import Button from "react-bootstrap/Button";
 import Rating from "../components/Rating";
 import { Helmet } from "react-helmet-async";
+import LoadingBox from "../components/LoadingBox";
+import MessageBox from "../components/MessageBox";
+import { getError } from "../utils";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -51,17 +54,17 @@ export default function ProductScreen() {
         dispatch({ type: "FETCH_SUCCESS", payload: result.data });
       } catch (err) {
         // if FAILED (SWITCH CASE)
-        dispatch({ type: "FETCH_FAILED", payload: err.message });
+        dispatch({ type: "FETCH_FAILED", payload: getError(err) });
       }
     };
     fetchData();
   }, [slug]);
 
   return loading ? (
-    <div>Loading Product....</div>
+    <LoadingBox/>
   ) : error ? (
-    <div>{error}</div>
-  ) : (
+    <MessageBox variant="danger">{error}</MessageBox>
+  )  : (
     <div>
       <Row>
         <Col md={6}>
@@ -118,16 +121,13 @@ export default function ProductScreen() {
                   </Row>
                 </ListGroup.Item>
 
-                {product.countInStock >0 && (
-                  <ListGroup.Item> 
+                {product.countInStock > 0 && (
+                  <ListGroup.Item>
                     <div className="d-grid">
-                      <Button variant="Primary">
-                        Add to Cart
-                      </Button>
+                      <Button variant="Primary">Add to Cart</Button>
                     </div>
                   </ListGroup.Item>
                 )}
-
               </ListGroup>
             </Card.Body>
           </Card>
