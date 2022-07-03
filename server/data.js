@@ -1,6 +1,7 @@
 const data = {
     products : [
         {
+            _id: 1,
             name: "Nike Size Shirt",
             slug: "nike-size-shirt",
             category: "Shirts",
@@ -13,6 +14,7 @@ const data = {
             description: "High Quality Shirt"
         },
         {
+            _id: 2,
             name: "Adidas Size Shirt",
             slug: "adidas-size-shirt",
             category: "Shirts",
@@ -25,6 +27,7 @@ const data = {
             description: "High Quality Shirt"
         },
         {
+            _id: 3,
             name: "Puma Size Shirt",
             slug: "puma-size-shirt",
             category: "Shirts",
@@ -37,6 +40,7 @@ const data = {
             description: "High Quality Shirt"
         },
         {
+            _id: 4,
             name: "Cat Size Shirt",
             slug: "cat-size-shirt",
             category: "Shirts",

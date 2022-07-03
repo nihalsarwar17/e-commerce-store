@@ -63,12 +63,24 @@ export default function ProductScreen() {
 
   // useContext helps to access state and can change the dispatch
   const { state, dispatch: ctxDispatch } = useContext(Store);
-  const addToCartHandler = () => {
+  const { cart } = state
+
+
+  // const addToCartHandler = async () => {
+  //   const existItem = cart.cartItems.find((obj) =>obj._id===product._id)
+  //   const quantity = existItem ? existItem.quantity + 1 : 1;
+  //   const { data } = await axios.get(`/api/products/${product._id}`); //AJAX req
+  //   if (data.countInStock < quantity ) {
+  //     window.alert("Sorry, Product is out of Stock :(")
+  //     return;
+  //   }
+    const addToCartHandler =  () => {
     ctxDispatch({
       type: "CART_ADD_ITEM",
-      payload: { ...product }, //, quantity: 1
+      payload: { ...product, quantity: 1 } 
     });
   };
+  
   return loading ? (
     <LoadingBox />
   ) : error ? (
