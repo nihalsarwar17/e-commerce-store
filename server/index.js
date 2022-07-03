@@ -21,7 +21,7 @@ app.get('/api/products/slug/:slug', (req, res) =>{
 
 app.get('/api/products/:id', (req, res) =>{
     const product = data.products.find((obj=>{
-        obj.id === req.params.id
+        return obj._id === req.params.id
     }))
     if(product){
         res.send(product)
@@ -30,6 +30,8 @@ app.get('/api/products/:id', (req, res) =>{
         res.status(404).send( {message: "ID Not Found"} )
     }
 });
+
+
 
 app.listen(5001, ()=>{
     console.log(`server is running at http://localhost:3000`)
