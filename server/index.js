@@ -1,5 +1,17 @@
 import exppress from 'express';
 import data from './data.js';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv'
+
+dotenv.config(); //fetch variables from the .env file
+
+// connecting to mongodb. call MONGODB_URI object from .env
+mongoose.connect(process.env.MONGODB_URI).then(()=>{
+    console.log("connected to Mongo Database")
+}).catch((err)=>{
+    console.log(err.message)
+})
+
 const app = exppress();
 
 app.get('/api/products', (req, res) =>{
