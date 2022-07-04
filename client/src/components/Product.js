@@ -9,19 +9,23 @@ import { Store } from '../Store';
 export default function Product(props) {
     const {product} = props
 
-    const { state, dispatch: ctxDispatch } = useContext(Store);
+    const { state, dispatch: ctxDispatch } = useContext(Store); // coming from the Store.js
     const {
       cart: { cartItems },
     } = state;
 
     const addToCartHandler = async (item) =>{
-      const existItem = cartItems.find((obj) =>obj._id===product._id)
+      // increase the quantity of the product in the cart, 
+      // don't display number of quantity of product separately in the cart
+      const existItem = cartItems.find((obj) =>obj._id===product._id) 
       const quantity = existItem ? existItem.quantity + 1 : 1;  
       const { data } = await axios.get(`api/products/${item._id}`)
-      if (data.countInStock < quantity ) {
+      
+      if (data.countInStock < quantity ) { // check if item is available in stock or not
           window.alert("Sorry, Product is out of Stock :(")
           return;
         }
+        // add item to cart
         ctxDispatch({
           type: "CART_ADD_ITEM",
           payload: { ...item, quantity } 
@@ -50,5 +54,5 @@ export default function Product(props) {
     }
     </Card.Body>
   </Card>
-  )
+  ) 
 }

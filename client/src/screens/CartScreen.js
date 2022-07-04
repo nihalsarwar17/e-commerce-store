@@ -11,12 +11,14 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios'
 
 export default function CartScreen() {
-  const navigate = useNavigate()
-  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const navigate = useNavigate() // Hook
+
+  const { state, dispatch: ctxDispatch } = useContext(Store); // coming from the Store.js
   const {
     cart: { cartItems },
   } = state;
 
+  // check product stock in the Array 
   const updateCartHandler = async (item, quantity) =>{
     const { data } = await axios.get(`api/products/${item._id}`)
     if (data.countInStock < quantity ) {
@@ -36,7 +38,8 @@ export default function CartScreen() {
   const checkoutHandler = ()=> {
 
     // check user Auth, if it is okay then redirect to shipping page 
-    navigate('signin?redirect=/shipping')
+    navigate('/signin?redirect=/shipping')
+
   }
   return (
     <div>
