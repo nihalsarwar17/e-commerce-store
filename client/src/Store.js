@@ -4,6 +4,11 @@ import { createContext } from "react";
 export const Store = createContext();
 
 const initialState = {
+  // if user info exists convert it into JSON otherwise NULL
+  userInfo: localStorage.getItem("userInfo")
+    ? JSON.parse(localStorage.getItem("userInfo"))
+    : null,
+
   cart: {
     cartItems: localStorage.getItem("cartItems") // if cartItems exists in localStorage
       ? JSON.parse(localStorage.getItem("cartItems")) // then convert to JSON
@@ -40,6 +45,14 @@ function reducer(state, action) {
       return { ...state, cart: { ...state.cart, cartItems } };
     }
 
+    case "USER_SIGNIN":
+      return { ...state, userInfo: action.payload };
+
+    case "USER_SIGNOUT":
+      return {
+        ...state,
+        userInfo: null,
+      };
     default:
       return state;
   }
