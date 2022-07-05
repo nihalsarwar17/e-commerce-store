@@ -14,6 +14,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import { Store } from "./Store";
 import CartScreen from "./screens/CartScreen";
 import SigninScreen from "./screens/SigninScreen";
+import ShippingAddScreen from "./screens/ShippingAddScreen";
 
 
 function App() {
@@ -24,6 +25,8 @@ function App() {
     ctxDispatch({ type: "USER_SIGNOUT" });
     // user info removed from local storage after sign out
     localStorage.removeItem("userInfo");
+    // shipping address info remove after sign out
+    localStorage.removeItem("shippingAddress");
   };
   return (
     <BrowserRouter>
@@ -87,6 +90,7 @@ function App() {
             <Route path="/product/:slug" element={<ProductScreen />} />
             <Route path="/cart" element={<CartScreen />} />
             <Route path="/signin" element={<SigninScreen />} />
+            <Route path="/shipping" element={<ShippingAddScreen/>}/>
           </Routes>
           {/* </Container> */}
         </main>

@@ -10,6 +10,10 @@ const initialState = {
     : null,
 
   cart: {
+    shippingAddress: localStorage.getItem("shippingAddress") 
+    ? JSON.parse(localStorage.getItem("shippingAddress")) 
+    : {},
+
     cartItems: localStorage.getItem("cartItems") // if cartItems exists in localStorage
       ? JSON.parse(localStorage.getItem("cartItems")) // then convert to JSON
       : [], // else, set it to empty Array
@@ -52,6 +56,19 @@ function reducer(state, action) {
       return {
         ...state,
         userInfo: null,
+        cart: {
+          cartItems: [],
+          shippingAddress: {}
+        },
+      };
+
+    case "SAVE_SHIPPING_ADDRESS":
+      return {
+        ...state,
+        cart: {
+          ...state.cart,
+          shippingAdress: action.payload,
+        },
       };
     default:
       return state;
