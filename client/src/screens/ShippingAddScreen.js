@@ -112,7 +112,9 @@ export default function ShippingAddScreen() {
             />
           </Form.Group>
           <div className="mb-3">
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit"
+            onClick={submitHandler}
+            >
               Continue
             </Button>
           </div>
