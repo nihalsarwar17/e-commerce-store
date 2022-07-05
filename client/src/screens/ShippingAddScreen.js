@@ -13,7 +13,7 @@ export default function ShippingAddScreen() {
     userInfo,
     cart: { shippingAddress },
   } = state;
-  // FULL NAME is in localstorage then display otherwise "" (empty string) --> page refresh
+  // if FULL NAME is in localstorage then display otherwise "" (empty string) --> page refresh
   const [fullName, setFullName] = useState(shippingAddress.fullName || "");
   const [address, setAddress] = useState(shippingAddress.address || "");
   const [city, setCity] = useState(shippingAddress.city || "");
@@ -62,7 +62,7 @@ export default function ShippingAddScreen() {
       </Helmet>
       
       <div className="container small-container">
-        
+
         {/* steps complettion */}
       <CheckoutSteps step1 step2></CheckoutSteps>
         <h1 className="my-3">Shipping Address</h1>
