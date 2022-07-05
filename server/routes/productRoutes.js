@@ -8,6 +8,7 @@ productRouter.get("/", async (req, res) => {
   res.send(products);
 });
 
+// slug helps to display individual product page
 productRouter.get("/slug/:slug", async (req, res) => {
   // findOne is a function from Mongoose
   const product = await Product.findOne({ slug: req.params.slug });
@@ -18,6 +19,7 @@ productRouter.get("/slug/:slug", async (req, res) => {
   }
 });
 
+// id helps to add specific product to cart
 productRouter.get("/:id", async (req, res) => {
   const product = await Product.findById(req.params.id);
   if (product) {
