@@ -14,13 +14,15 @@ export default function PaymentMethodScreen() {
   } = state;
 
   const [paymentMethodName, setPaymentMethodName] = useState(
-    paymentMethod || 'Paypal'
+    paymentMethod || 'Paypal' // by default radio on Paypal
   )
   useEffect(() => {
+    // if shipping address is not there
     if (!shippingAddress.address) {
       navigate("/shipping");
     }
   }, [shippingAddress, navigate]);
+  
   const submitHandler = (e) => {
     e.preventDefault();
     ctxDispatch({ type: 'SAVE_PAYMENT_METHOD', payload: paymentMethodName});
