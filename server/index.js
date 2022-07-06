@@ -1,5 +1,6 @@
 import exppress from "express";
 import mongoose from "mongoose";
+import path from "path";
 import dotenv from "dotenv";
 import seedRouter from "./routes/seedRoutes.js";
 import productRouter from "./routes/productRoutes.js";
@@ -26,6 +27,19 @@ app.use(exppress.urlencoded({ extended: true }));
 app.use("/api/seed", seedRouter); // calls async function from seedRoutes
 app.use("/api/products", productRouter);
 app.use("/api/users", userRouter);
+
+// returns the current directory
+const __dirname = path.resolve();
+
+// below port serves all files stored inside client/build folder
+// only static files (image, scripts, html)
+app.use(exppress.static(path.join(__dirname, "/client/build")));
+
+// * means that whatever user enters after website domain
+// will serve by the index.html file
+app.get("*", (req, res) =>
+  res.sendFile(path.join(__dirname, "/client/build/index.html"))
+);
 
 // error handler (middleware) for express
 // amy error occurred in expressAsync,

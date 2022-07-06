@@ -1,0 +1,21 @@
+{
+  "name": "amazona",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd server && npm install  && cd ../client && npm install && npm run build",
+    "start": "node backend/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nihalsarwar17/e-commerce-store.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nihalsarwar17/e-commerce-store/issues"
+  },
+  "homepage": "https://github.com/nihalsarwar17/e-commerce-store#readme"
+}
