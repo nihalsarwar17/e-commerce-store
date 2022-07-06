@@ -18,6 +18,7 @@ import ShippingAddScreen from "./screens/ShippingAddScreen";
 import SignupScreen from "./screens/SignupScreen";
 import PaymentMethodScreen from "./screens/PaymentMethodScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 
 
 function App() {
@@ -32,6 +33,8 @@ function App() {
     localStorage.removeItem("shippingAddress");
     // payment method info remove after sign out
     localStorage.removeItem("paymentMethod");
+    // redirect user to the signin screen after sign out
+    window.location.href=  '/signin';
 
   };
   return (
@@ -68,9 +71,9 @@ function App() {
                   <NavDropDown.Item>User Profile</NavDropDown.Item>
                 </LinkContainer>
 
-                <LinkContainer to="/orderhistory">
+                {/* <LinkContainer to="/orderhistory">
                   <NavDropDown.Item>Order History</NavDropDown.Item>
-                </LinkContainer>
+                </LinkContainer> */}
 
                 <NavDropDown.Divider />
                 <Link
@@ -100,6 +103,7 @@ function App() {
             <Route path="/shipping" element={<ShippingAddScreen/>}/>
             <Route path="/payment" element={<PaymentMethodScreen/>}/>
             <Route path="/placeorder" element={<PlaceOrderScreen/>}/>
+            <Route path="/profile" element={<ProfileScreen/>}/>
 
           </Routes>
           {/* </Container> */}
