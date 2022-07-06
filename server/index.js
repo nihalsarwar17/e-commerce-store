@@ -8,9 +8,9 @@ import userRouter from "./routes/userRoutes.js";
 
 dotenv.config(); //fetch variables from the .env file
 
-// connecting to mongodb. call MONGODB_URI object from .env
+// connecting to mongodb, call MONGODB_URI object from .env
 mongoose
-  .connect(process.env.MONGODB_URI)
+  .connect(process.env.MONGODB_URI_LOCAL)
   .then(() => {
     console.log("connected to Mongo Database");
   })
@@ -49,6 +49,7 @@ app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
 });
 
-app.listen(5001, () => {
-  console.log(`server is running at http://localhost:3000`);
+const port = process.env.PORT || 5000;
+app.listen(port, () => {
+  console.log(`serve at http://localhost:${port}`);
 });
