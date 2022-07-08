@@ -7,7 +7,7 @@ import { isAuth, generateToken } from "../utils.js";
 const userRouter = express.Router();
 
 userRouter.post(
-  // can catch error inside Async func
+  // can catch error inside Async function
   "/signin",
   //   when there's amy error then, it executes
   // middleware from index.js
@@ -79,6 +79,6 @@ userRouter.post(
         res.status(404).send({ message: 'User not found' });
       }
     })
-  );
+  ); 
 
 export default userRouter
