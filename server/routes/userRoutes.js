@@ -71,6 +71,7 @@ userRouter.post(
           _id: updatedUser._id,
           name: updatedUser.name,
           email: updatedUser.email,
+          password: updatedUser.password,
           isAdmin: updatedUser.isAdmin,
           token: generateToken(updatedUser),
         });

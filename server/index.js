@@ -1,6 +1,6 @@
-import exppress from "express";
+import express from "express";
 import mongoose from "mongoose";
-import path from "path";
+import data from "./data.js";
 import dotenv from "dotenv";
 import seedRouter from "./routes/seedRoutes.js";
 import productRouter from "./routes/productRoutes.js";
@@ -10,7 +10,7 @@ dotenv.config(); //fetch variables from the .env file
 
 // connecting to mongodb, call MONGODB_URI object from .env
 mongoose
-  .connect(process.env.MONGODB_URI_LOCAL)
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log("connected to Mongo Database");
   })
@@ -18,28 +18,17 @@ mongoose
     console.log(err.message);
   });
 
-const app = exppress();
+const app = express();
 
-app.use(exppress.json());
-app.use(exppress.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
 
 // mongodb API
 app.use("/api/seed", seedRouter); // calls async function from seedRoutes
 app.use("/api/products", productRouter);
 app.use("/api/users", userRouter);
-
-// returns the current directory
-const __dirname = path.resolve();
-
-// below port serves all files stored inside client/build folder
-// only static files (image, scripts, html)
-app.use(exppress.static(path.join(__dirname, "/client/build")));
-
-// * means that whatever user enters after website domain
-// will serve by the index.html file
-app.get("*", (req, res) =>
-  res.sendFile(path.join(__dirname, "/client/build/index.html"))
-);
 
 // error handler (middleware) for express
 // amy error occurred in expressAsync,
@@ -49,7 +38,8 @@ app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
 });
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
+
 app.listen(port, () => {
-  console.log(`serve at http://localhost:${port}`);
+  console.log(`server is running at http://localhost:${port}`);
 });

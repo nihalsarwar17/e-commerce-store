@@ -118,12 +118,3 @@ function App() {
 }
 
 export default App;
-
-// const obj = {
-//   nested: [
-//     {name: "Nihal", age: 21},
-//     {name: "Madiha", age: 21},
-//     {name: "Fatima", age: 2}
-//   ]
-// }
-// console.log(obj.nested[0].name)
