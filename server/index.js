@@ -32,7 +32,7 @@ app.use("/api/users", userRouter);
 
 // error handler (middleware) for express
 // amy error occurred in expressAsync,
-// will display from here
+// will display from this code
 app.use((err, req, res, next) => {
   // message coming from above err object
   res.status(500).send({ message: err.message });
