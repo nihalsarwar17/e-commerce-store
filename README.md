@@ -145,17 +145,10 @@ Steps of a Project
         create user update api
         update user info
         ****************************************
-    Publish To Heroku
-        create and config node project
-        serve build folder in frontend folder
-        Create heroku account
-        connect it to github
-        Create mongodb atlas database
-        Set database connection in heroku env variables
-        Commit and push
     Add Sidebar and Search Box
         add sidebar
         add search box
+        
     Create Search Screen
         show filters
         create api for searching products
